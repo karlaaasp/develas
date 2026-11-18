@@ -1,21 +1,23 @@
+from django.http import Http404 
 from django.shortcuts import render 
 from vagas.dados import VAGAS 
-from django.http import Http404 
+
 
 def home(request): 
-    return render(request, "vagas/home.html") 
- 
+    return render(request, "vagas/home.html", {"total": len(VAGAS)}) 
+
 def mural(request): 
     modalidade = request.GET.get("modalidade", "") 
- 
+
     if modalidade: 
         vagas = [] 
         for vaga in VAGAS: 
             if vaga["modalidade"] == modalidade: 
                 vagas.append(vaga) 
+
     else: 
         vagas = VAGAS 
- 
+
     contexto = { 
         "vagas": vagas, 
         "total": len(vagas), 
