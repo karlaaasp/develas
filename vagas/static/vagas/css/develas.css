@@ -1,73 +1,59 @@
-/* Cores e estilos da DevElas: tudo num lugar só */ 
+/* Cores e estilos da DevElas: tudo num lugar só */
 
- 
+:root {
+  --cor-principal: #6C3FC5;
+  --cor-destaque: #F07A4E;
+}
 
-:root { 
+.bg-develas, .badge-develas { background-color: var(--cor-principal); }
+.text-develas { color: var(--cor-principal); }
+.borda-destaque { border-top: 4px solid var(--cor-destaque) !important; }
 
-  --cor-principal: #6336c6; 
+.navbar .nav-link { color: rgba(255, 255, 255, 0.85); }
+.navbar .nav-link.active { font-weight: 600; }
+.logo-develas { width: 32px; height: 32px; }
 
-  --cor-destaque: #B9E65C; 
+.btn-develas, .btn-develas:hover, .btn-develas:disabled,
+.btn-borda:hover, .btn-borda.active {
+  background-color: var(--cor-principal);
+  border-color: var(--cor-principal);
+  color: #fff;
+}
+.btn-develas:hover { filter: brightness(0.85); }
+.btn-borda {
+  color: var(--cor-principal);
+  border-color: var(--cor-principal);
+}
 
-} 
+/* Telas bem pequenas: logo e menu centralizados */
+@media (max-width: 300px) {
+  .navbar .container { justify-content: center; }
+}
 
- 
+.numero-destaque {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--cor-destaque);
+}
 
-.bg-develas, .badge-develas { background-color: var(--cor-principal); } 
+/* ---------- NOVO ---------- */
 
-.text-develas { color: var(--cor-principal); } 
+/* Hero com degradê suave (tons claros do roxo e do coral) */
+.hero {
+  background: linear-gradient(135deg, #F4EEFF 0%, #FFF3EC 100%);
+}
 
-.borda-destaque { border-top: 4px solid var(--cor-destaque) !important; } 
+/* Respiro no hero */
+.hero .container {
+  padding-top: 4rem !important;
+  padding-bottom: 4rem !important;
+}
 
- 
-
-.navbar .nav-link { color: rgba(255, 255, 255, 0.85); } 
-
-.navbar .nav-link.active { font-weight: 600; } 
-
-.logo-develas { width: 32px; height: 32px; } 
-
- 
-
-.btn-develas, .btn-develas:hover, .btn-develas:disabled, 
-
-.btn-borda:hover, .btn-borda.active { 
-
-  background-color: var(--cor-principal); 
-
-  border-color: var(--cor-principal); 
-
-  color: #fff; 
-
-} 
-
-.btn-develas:hover { filter: brightness(0.85); } 
-
-.btn-borda { 
-
-  color: var(--cor-principal); 
-
-  border-color: var(--cor-principal); 
-
-} 
-
- 
-
-/* Telas bem pequenas: logo e menu centralizados */ 
-
-@media (max-width: 300px) { 
-
-  .navbar .container { justify-content: center; } 
-
-} 
-
- 
-
-.numero-destaque { 
-
-  font-size: 2.5rem; 
-
-  font-weight: 700; 
-
-  color: var(--cor-destaque); 
-
-} 
+/* Cards com vida (só os da home, que têm a borda de destaque) */
+.card.borda-destaque {
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.card.borda-destaque:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 .75rem 1.5rem rgba(0, 0, 0, .1) !important;
+}

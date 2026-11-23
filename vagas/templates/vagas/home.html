@@ -1,99 +1,66 @@
-{% extends "vagas/base.html" %} 
+{% extends "vagas/base.html" %}
 
-{% block titulo %}DevElas | Vagas de tecnologia para mulheres{% endblock %} 
+{% block titulo %}DevElas | Vagas de tecnologia para mulheres{% endblock %}
 
-{% block conteudo %} 
+{% block conteudo %}
 
-  <section class="bg-white border-bottom"> 
+  <section class="hero border-bottom">
+    <div class="container py-5">
+      <h1 class="display-3 fw-bold text-develas">DevElas</h1>
+      <p class="lead">Vagas de tecnologia feitas para mulheres.</p>
+      <p class="text-muted">{{ total }} vagas abertas agora no mural.</p>
+      <div class="d-flex flex-wrap gap-2">
+        <a class="btn btn-develas btn-lg" href="{% url 'mural' %}">Ver vagas</a>
+        <a class="btn btn-borda btn-lg" href="{% url 'sobre' %}">Conheça o Coletivo</a>
+      </div>
+    </div>
+  </section>
 
-    <div class="container py-5"> 
+  <section class="container py-5">
+    <h2 class="h4 mb-4 text-center text-md-start">Por que a DevElas?</h2>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="card h-100 border-0 shadow-sm borda-destaque">
+          <div class="card-body">
+            <div class="fs-1 mb-2">🔎</div>
+            <h3 class="h5 text-develas">Vagas reunidas</h3>
+            <p class="card-text">
+              Nada de vaga perdida no meio das mensagens: tudo num mural só.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card h-100 border-0 shadow-sm borda-destaque">
+          <div class="card-body">
+            <div class="fs-1 mb-2">⚡</div>
+            <h3 class="h5 text-develas">Filtro na hora</h3>
+            <p class="card-text">
+              Remoto, híbrido ou presencial: escolha com um clique.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card h-100 border-0 shadow-sm borda-destaque">
+          <div class="card-body">
+            <div class="fs-1 mb-2">💜</div>
+            <h3 class="h5 text-develas">Feita por mulheres</h3>
+            <p class="card-text">
+              Uma plataforma criada por quem também está entrando na tecnologia.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-      <h1 class="display-4 fw-bold text-develas">DevElas</h1> 
+  <section class="container pb-5">
+    <div class="hero rounded-4 text-center p-5">
+      <h2 class="h3 fw-bold text-develas">Pronta para o próximo passo?</h2>
+      <p class="mb-4">Veja as {{ total }} vagas abertas e filtre por modalidade.</p>
+      <a class="btn btn-develas btn-lg" href="{% url 'mural' %}">Explorar o mural</a>
+    </div>
+  </section>
 
-      <p class="lead">Vagas de tecnologia feitas para mulheres.</p> 
-
-      <p class="text-muted">{{ total }} vagas abertas agora no mural.</p> 
-
-      <div class="d-flex flex-wrap gap-2"> 
-
-        <a class="btn btn-develas btn-lg" href="{% url 'mural' %}">Ver vagas</a> 
-
-        <a class="btn btn-borda btn-lg" href="{% url 'sobre' %}">Conheça o Coletivo</a> 
-
-      </div> 
-
-    </div> 
-
-  </section> 
-
-  <section class="container py-5"> 
-
-    <h2 class="h4 mb-4 text-center text-md-start">Por que a DevElas?</h2> 
-
-    <div class="row g-4"> 
-
-      <div class="col-md-4"> 
-
-        <div class="card h-100 border-0 shadow-sm borda-destaque"> 
-
-          <div class="card-body"> 
-
-            <h3 class="h5 text-develas">Vagas reunidas</h3> 
-
-            <p class="card-text"> 
-
-              Nada de vaga perdida no meio das mensagens: tudo num mural só. 
-
-            </p> 
-
-          </div> 
-
-        </div> 
-
-      </div> 
-
-      <div class="col-md-4"> 
-
-        <div class="card h-100 border-0 shadow-sm borda-destaque"> 
-
-          <div class="card-body"> 
-
-            <h3 class="h5 text-develas">Filtro na hora</h3> 
-
-            <p class="card-text"> 
-
-              Remoto, híbrido ou presencial: escolha com um clique. 
-
-            </p> 
-
-          </div> 
-
-        </div> 
-
-      </div> 
-
-      <div class="col-md-4"> 
-
-        <div class="card h-100 border-0 shadow-sm borda-destaque"> 
-
-          <div class="card-body"> 
-
-            <h3 class="h5 text-develas">Feita por mulheres</h3> 
-
-            <p class="card-text"> 
-
-              Uma plataforma criada por quem também está entrando na tecnologia. 
-
-            </p> 
-
-          </div> 
-
-        </div> 
-
-      </div> 
-
-    </div> 
-
-  </section> 
-
-{% endblock %} 
+{% endblock %}
