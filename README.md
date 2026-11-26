@@ -1,19 +1,46 @@
 # DevElas
 
-O DevElas é um projeto em desenvolvimento para apresentar oportunidades de tecnologia voltadas para mulheres.
+O **DevElas** é um projeto em desenvolvimento para divulgar oportunidades de tecnologia voltadas para mulheres.
 
-## Atualizações do projeto
+## Funcionalidades
 
-O projeto começou com a configuração inicial em Django e uma página inicial. Depois, ganhou um mural de vagas: a página inicial agora leva à rota `/vagas/`, que exibe cinco oportunidades de exemplo com informações como empresa, cidade, área, nível, modalidade e habilidades.
+- Página inicial com apresentação do projeto e quantidade de vagas abertas.
+- Mural com oportunidades de tecnologia em diferentes áreas e níveis.
+- Filtro de vagas por modalidade.
+- Página de detalhes para cada oportunidade.
+- Páginas sobre o projeto e contato.
+- Cálculo da compatibilidade entre as skills da vaga e as skills cadastradas no projeto.
+- Identificação das skills necessárias que ainda não foram adquiridas.
+- Indicação de vagas abertas ou encerradas conforme o prazo.
 
-Atualmente, as vagas são mantidas em uma lista no código; ainda não há cadastro ou gerenciamento por banco de dados.
+## Atualizações recentes
+
+- Os dados das vagas passaram a ser armazenados no arquivo `vagas/vagas.csv`.
+- Foram adicionadas novas vagas e mais informações sobre cada oportunidade.
+- O mural permite filtrar oportunidades por modalidade.
+- Foi criada uma página com detalhes de cada vaga.
+- Foram adicionadas as páginas **Sobre** e **Contato**.
+- Foram introduzidas regras reutilizáveis para compatibilidade de skills, skills faltantes e prazo das vagas.
+- O layout foi atualizado com Bootstrap, um template base e componentes compartilhados.
 
 ## Tecnologias
 
-- Python
+- Python 3
 - Django 4.2.7
 - HTML
+- CSS
+- Bootstrap
 - SQLite
+- Arquivo CSV para os dados das vagas
+
+## Rotas disponíveis
+
+- `/` — página inicial
+- `/vagas/` — mural de vagas
+- `/vagas/<id>/` — detalhes da vaga
+- `/sobre/` — informações sobre o projeto
+- `/contato/` — página de contato
+- `/admin/` — administração do Django
 
 ## Como executar localmente
 
@@ -55,14 +82,27 @@ Atualmente, as vagas são mantidas em uma lista no código; ainda não há cadas
    python manage.py runserver
    ```
 
-5. Acesse [http://127.0.0.1:8000/](http://127.0.0.1:8000/) para ver a página inicial ou [http://127.0.0.1:8000/vagas/](http://127.0.0.1:8000/vagas/) para abrir o mural.
+5. Acesse:
+
+   - [http://127.0.0.1:8000/](http://127.0.0.1:8000/) — página inicial
+   - [http://127.0.0.1:8000/vagas/](http://127.0.0.1:8000/vagas/) — mural de vagas
 
 ## Estrutura do projeto
 
-- `manage.py`: utilitário para executar comandos do Django.
-- `develas/`: configurações e rotas do projeto.
-- `vagas/`: aplicação com as páginas e os dados de exemplo das vagas.
+- `manage.py` — utilitário de administração do Django.
+- `develas/` — configurações do projeto e definição das URLs.
+- `vagas/` — aplicação principal.
+- `vagas/views.py` — views e preparação dos dados exibidos pelas páginas.
+- `vagas/regras.py` — regras de compatibilidade, skills faltantes e validade das vagas.
+- `vagas/dados.py` — leitura das informações e skills configuradas no projeto.
+- `vagas/vagas.csv` — base de dados das vagas em formato CSV.
+- `vagas/templates/` — templates HTML das páginas.
+- `vagas/static/` — arquivos estáticos, como CSS.
+- `vagas/tests.py` — testes básicos das views e funcionalidades.
 
 ## Próximos passos
 
-O projeto ainda está em fase inicial. Entre as possíveis melhorias estão permitir cadastrar vagas e armazená-las no banco de dados.
+- Evoluir o cadastro e gerenciamento das vagas.
+- Migrar os dados para o banco de dados Django.
+- Ampliar os filtros e a busca por vagas.
+- Adicionar novas funcionalidades de interação e contato.
